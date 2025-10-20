@@ -3,7 +3,7 @@
 """
 import unittest
 from unittest.mock import patch, Mock
-import project
+from my_app import project
 
 class TestApp(unittest.TestCase):
     """
@@ -25,6 +25,7 @@ class TestApp(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             project.get_user_input('')
+
 
 
     def test_correct_input(self):
@@ -67,7 +68,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(actual_output, expected_output)
 
 
-    @patch('project.arxiv.Client')  # Replace 'my_module' with the actual path
+    @patch('my_app.project.arxiv.Client')  # Replace 'my_module' with the actual path
     def test_client_is_initialized(self, MockClient):
         """Tests that the arxiv.Client is called."""
 
